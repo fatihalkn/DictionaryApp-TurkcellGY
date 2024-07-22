@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D4BF7AF2C4E8F8B0045F065 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7AE2C4E8F8B0045F065 /* AppDelegate.swift */; };
+		3D4BF7B12C4E8F8B0045F065 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7B02C4E8F8B0045F065 /* SceneDelegate.swift */; };
+		3D4BF7B92C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7B72C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld */; };
+		3D4BF7BB2C4E8F8C0045F065 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D4BF7BA2C4E8F8C0045F065 /* Assets.xcassets */; };
+		3D4BF7BE2C4E8F8C0045F065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D4BF7BC2C4E8F8C0045F065 /* LaunchScreen.storyboard */; };
+		3D4BF7CE2C4E902B0045F065 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7CD2C4E902B0045F065 /* SearchViewController.swift */; };
+		3D4BF7D02C4E90A90045F065 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7CF2C4E90A90045F065 /* SearchView.swift */; };
+		3D4BF7D32C4E94C10045F065 /* SearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7D22C4E94C10045F065 /* SearchButton.swift */; };
+		3D4BF7D52C4E96300045F065 /* SearchButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7D42C4E96300045F065 /* SearchButtonModel.swift */; };
+		3D4BF7D72C4EA1900045F065 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7D62C4EA1900045F065 /* SearchTableViewCell.swift */; };
+		3D4BF7DB2C4EA8BA0045F065 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7DA2C4EA8BA0045F065 /* NetworkConstants.swift */; };
+		3D4BF7DD2C4EA9280045F065 /* NetworkEndPointHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7DC2C4EA9280045F065 /* NetworkEndPointHelper.swift */; };
+		3D4BF7DF2C4EA9F70045F065 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7DE2C4EA9F70045F065 /* NetworkManager.swift */; };
+		3D4BF7E22C4EAA090045F065 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4BF7E12C4EAA090045F065 /* Alamofire */; };
+		3D4BF7E52C4EAAEE0045F065 /* WordDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7E42C4EAAEE0045F065 /* WordDetailResponseModel.swift */; };
+		3D4BF7E72C4EAB4C0045F065 /* WordSynonymResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7E62C4EAB4C0045F065 /* WordSynonymResponseModel.swift */; };
+		3D4BF7EA2C4EB1300045F065 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7E92C4EB1300045F065 /* NetworkService.swift */; };
+		3D4BF7EC2C4ECF560045F065 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7EB2C4ECF560045F065 /* WordService.swift */; };
+		3D4BF7EE2C4ED0A70045F065 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7ED2C4ED0A70045F065 /* SearchViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D4BF7AB2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DictionaryApp-TurkcellGY.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D4BF7AE2C4E8F8B0045F065 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3D4BF7B02C4E8F8B0045F065 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3D4BF7B82C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DictionaryApp_TurkcellGY.xcdatamodel; sourceTree = "<group>"; };
+		3D4BF7BA2C4E8F8C0045F065 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D4BF7BD2C4E8F8C0045F065 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D4BF7BF2C4E8F8C0045F065 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D4BF7CD2C4E902B0045F065 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3D4BF7CF2C4E90A90045F065 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3D4BF7D22C4E94C10045F065 /* SearchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButton.swift; sourceTree = "<group>"; };
+		3D4BF7D42C4E96300045F065 /* SearchButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchButtonModel.swift; sourceTree = "<group>"; };
+		3D4BF7D62C4EA1900045F065 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		3D4BF7DA2C4EA8BA0045F065 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		3D4BF7DC2C4EA9280045F065 /* NetworkEndPointHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndPointHelper.swift; sourceTree = "<group>"; };
+		3D4BF7DE2C4EA9F70045F065 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3D4BF7E42C4EAAEE0045F065 /* WordDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailResponseModel.swift; sourceTree = "<group>"; };
+		3D4BF7E62C4EAB4C0045F065 /* WordSynonymResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSynonymResponseModel.swift; sourceTree = "<group>"; };
+		3D4BF7E92C4EB1300045F065 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		3D4BF7EB2C4ECF560045F065 /* WordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
+		3D4BF7ED2C4ED0A70045F065 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D4BF7A82C4E8F8B0045F065 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D4BF7E22C4EAA090045F065 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D4BF7A22C4E8F8B0045F065 = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7D12C4E94930045F065 /* CustonSubViews */,
+				3D4BF7AD2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY */,
+				3D4BF7AC2C4E8F8B0045F065 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D4BF7AC2C4E8F8B0045F065 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7AB2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D4BF7AD2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7D82C4EA85B0045F065 /* Network */,
+				3D4BF7C72C4E8FF30045F065 /* Scene */,
+				3D4BF7C62C4E8FB20045F065 /* CoreDataManager */,
+				3D4BF7C52C4E8F950045F065 /* App */,
+			);
+			path = "DictionaryApp-TurkcellGY";
+			sourceTree = "<group>";
+		};
+		3D4BF7C52C4E8F950045F065 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7AE2C4E8F8B0045F065 /* AppDelegate.swift */,
+				3D4BF7B02C4E8F8B0045F065 /* SceneDelegate.swift */,
+				3D4BF7BA2C4E8F8C0045F065 /* Assets.xcassets */,
+				3D4BF7BC2C4E8F8C0045F065 /* LaunchScreen.storyboard */,
+				3D4BF7BF2C4E8F8C0045F065 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3D4BF7C62C4E8FB20045F065 /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7B72C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		3D4BF7C72C4E8FF30045F065 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7C82C4E8FF70045F065 /* Search */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		3D4BF7C82C4E8FF70045F065 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7CC2C4E90200045F065 /* View */,
+				3D4BF7CB2C4E90180045F065 /* ViewModel */,
+				3D4BF7CA2C4E90140045F065 /* Model */,
+				3D4BF7C92C4E900E0045F065 /* Controller */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3D4BF7C92C4E900E0045F065 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7CD2C4E902B0045F065 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D4BF7CA2C4E90140045F065 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D4BF7CB2C4E90180045F065 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7ED2C4ED0A70045F065 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3D4BF7CC2C4E90200045F065 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7CF2C4E90A90045F065 /* SearchView.swift */,
+				3D4BF7D62C4EA1900045F065 /* SearchTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D4BF7D12C4E94930045F065 /* CustonSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7D22C4E94C10045F065 /* SearchButton.swift */,
+				3D4BF7D42C4E96300045F065 /* SearchButtonModel.swift */,
+			);
+			path = CustonSubViews;
+			sourceTree = "<group>";
+		};
+		3D4BF7D82C4EA85B0045F065 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7E82C4EB1240045F065 /* Service */,
+				3D4BF7E32C4EAAD80045F065 /* ResponseModels */,
+				3D4BF7D92C4EA8620045F065 /* Core */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3D4BF7D92C4EA8620045F065 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7DA2C4EA8BA0045F065 /* NetworkConstants.swift */,
+				3D4BF7DC2C4EA9280045F065 /* NetworkEndPointHelper.swift */,
+				3D4BF7DE2C4EA9F70045F065 /* NetworkManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3D4BF7E32C4EAAD80045F065 /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7E42C4EAAEE0045F065 /* WordDetailResponseModel.swift */,
+				3D4BF7E62C4EAB4C0045F065 /* WordSynonymResponseModel.swift */,
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		3D4BF7E82C4EB1240045F065 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7E92C4EB1300045F065 /* NetworkService.swift */,
+				3D4BF7EB2C4ECF560045F065 /* WordService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D4BF7AA2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D4BF7C22C4E8F8C0045F065 /* Build configuration list for PBXNativeTarget "DictionaryApp-TurkcellGY" */;
+			buildPhases = (
+				3D4BF7A72C4E8F8B0045F065 /* Sources */,
+				3D4BF7A82C4E8F8B0045F065 /* Frameworks */,
+				3D4BF7A92C4E8F8B0045F065 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DictionaryApp-TurkcellGY";
+			packageProductDependencies = (
+				3D4BF7E12C4EAA090045F065 /* Alamofire */,
+			);
+			productName = "DictionaryApp-TurkcellGY";
+			productReference = 3D4BF7AB2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D4BF7A32C4E8F8B0045F065 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					3D4BF7AA2C4E8F8B0045F065 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 3D4BF7A62C4E8F8B0045F065 /* Build configuration list for PBXProject "DictionaryApp-TurkcellGY" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D4BF7A22C4E8F8B0045F065;
+			packageReferences = (
+				3D4BF7E02C4EAA090045F065 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
+			productRefGroup = 3D4BF7AC2C4E8F8B0045F065 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D4BF7AA2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D4BF7A92C4E8F8B0045F065 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D4BF7BE2C4E8F8C0045F065 /* LaunchScreen.storyboard in Resources */,
+				3D4BF7BB2C4E8F8C0045F065 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D4BF7A72C4E8F8B0045F065 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D4BF7DB2C4EA8BA0045F065 /* NetworkConstants.swift in Sources */,
+				3D4BF7E52C4EAAEE0045F065 /* WordDetailResponseModel.swift in Sources */,
+				3D4BF7EE2C4ED0A70045F065 /* SearchViewModel.swift in Sources */,
+				3D4BF7D02C4E90A90045F065 /* SearchView.swift in Sources */,
+				3D4BF7B92C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld in Sources */,
+				3D4BF7DD2C4EA9280045F065 /* NetworkEndPointHelper.swift in Sources */,
+				3D4BF7DF2C4EA9F70045F065 /* NetworkManager.swift in Sources */,
+				3D4BF7EA2C4EB1300045F065 /* NetworkService.swift in Sources */,
+				3D4BF7AF2C4E8F8B0045F065 /* AppDelegate.swift in Sources */,
+				3D4BF7EC2C4ECF560045F065 /* WordService.swift in Sources */,
+				3D4BF7CE2C4E902B0045F065 /* SearchViewController.swift in Sources */,
+				3D4BF7B12C4E8F8B0045F065 /* SceneDelegate.swift in Sources */,
+				3D4BF7E72C4EAB4C0045F065 /* WordSynonymResponseModel.swift in Sources */,
+				3D4BF7D72C4EA1900045F065 /* SearchTableViewCell.swift in Sources */,
+				3D4BF7D32C4E94C10045F065 /* SearchButton.swift in Sources */,
+				3D4BF7D52C4E96300045F065 /* SearchButtonModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3D4BF7BC2C4E8F8C0045F065 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D4BF7BD2C4E8F8C0045F065 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D4BF7C02C4E8F8C0045F065 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3D4BF7C12C4E8F8C0045F065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D4BF7C32C4E8F8C0045F065 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 628PNWMZP5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DictionaryApp-TurkcellGY/App/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alkanfatih.DictionaryApp-TurkcellGY";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D4BF7C42C4E8F8C0045F065 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 628PNWMZP5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "DictionaryApp-TurkcellGY/App/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alkanfatih.DictionaryApp-TurkcellGY";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D4BF7A62C4E8F8B0045F065 /* Build configuration list for PBXProject "DictionaryApp-TurkcellGY" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D4BF7C02C4E8F8C0045F065 /* Debug */,
+				3D4BF7C12C4E8F8C0045F065 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D4BF7C22C4E8F8C0045F065 /* Build configuration list for PBXNativeTarget "DictionaryApp-TurkcellGY" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D4BF7C32C4E8F8C0045F065 /* Debug */,
+				3D4BF7C42C4E8F8C0045F065 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3D4BF7E02C4EAA090045F065 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D4BF7E12C4EAA090045F065 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D4BF7E02C4EAA090045F065 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		3D4BF7B72C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D4BF7B82C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodel */,
+			);
+			currentVersion = 3D4BF7B82C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodel */;
+			path = DictionaryApp_TurkcellGY.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3D4BF7A32C4E8F8B0045F065 /* Project object */;
+}
