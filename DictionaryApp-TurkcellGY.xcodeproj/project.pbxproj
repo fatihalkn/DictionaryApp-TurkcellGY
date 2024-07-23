@@ -26,6 +26,15 @@
 		3D4BF7EA2C4EB1300045F065 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7E92C4EB1300045F065 /* NetworkService.swift */; };
 		3D4BF7EC2C4ECF560045F065 /* WordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7EB2C4ECF560045F065 /* WordService.swift */; };
 		3D4BF7EE2C4ED0A70045F065 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7ED2C4ED0A70045F065 /* SearchViewModel.swift */; };
+		3D4BF7F12C4ED81E0045F065 /* ProgresHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7F02C4ED81E0045F065 /* ProgresHUD.swift */; };
+		3D4BF7F42C4ED8320045F065 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 3D4BF7F32C4ED8320045F065 /* ProgressHUD */; };
+		3D4BF7FB2C4FD8DC0045F065 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7FA2C4FD8DC0045F065 /* DetailViewController.swift */; };
+		3D4BF7FD2C4FD90D0045F065 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7FC2C4FD90D0045F065 /* DetailView.swift */; };
+		3D4BF7FF2C4FDA6B0045F065 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF7FE2C4FDA6B0045F065 /* DetailViewModel.swift */; };
+		3D4BF8012C4FDB180045F065 /* DetailViewControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8002C4FDB180045F065 /* DetailViewControllerCollectionViewCell.swift */; };
+		3D4BF8032C4FF2820045F065 /* DetailCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8022C4FF2820045F065 /* DetailCollectionViewHeader.swift */; };
+		3D4BF8072C4FFE4A0045F065 /* DetailHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8062C4FFE4A0045F065 /* DetailHeaderViewCell.swift */; };
+		3D4BF8092C5001FD0045F065 /* PartOfSpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8082C5001FD0045F065 /* PartOfSpeechModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +58,14 @@
 		3D4BF7E92C4EB1300045F065 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		3D4BF7EB2C4ECF560045F065 /* WordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordService.swift; sourceTree = "<group>"; };
 		3D4BF7ED2C4ED0A70045F065 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		3D4BF7F02C4ED81E0045F065 /* ProgresHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgresHUD.swift; sourceTree = "<group>"; };
+		3D4BF7FA2C4FD8DC0045F065 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3D4BF7FC2C4FD90D0045F065 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		3D4BF7FE2C4FDA6B0045F065 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		3D4BF8002C4FDB180045F065 /* DetailViewControllerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D4BF8022C4FF2820045F065 /* DetailCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewHeader.swift; sourceTree = "<group>"; };
+		3D4BF8062C4FFE4A0045F065 /* DetailHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderViewCell.swift; sourceTree = "<group>"; };
+		3D4BF8082C5001FD0045F065 /* PartOfSpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeechModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4BF7E22C4EAA090045F065 /* Alamofire in Frameworks */,
+				3D4BF7F42C4ED8320045F065 /* ProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +84,6 @@
 		3D4BF7A22C4E8F8B0045F065 = {
 			isa = PBXGroup;
 			children = (
-				3D4BF7D12C4E94930045F065 /* CustonSubViews */,
 				3D4BF7AD2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY */,
 				3D4BF7AC2C4E8F8B0045F065 /* Products */,
 			);
@@ -83,6 +100,8 @@
 		3D4BF7AD2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY */ = {
 			isa = PBXGroup;
 			children = (
+				3D4BF7EF2C4ED80D0045F065 /* Extension+UIView */,
+				3D4BF7D12C4E94930045F065 /* CustonSubViews */,
 				3D4BF7D82C4EA85B0045F065 /* Network */,
 				3D4BF7C72C4E8FF30045F065 /* Scene */,
 				3D4BF7C62C4E8FB20045F065 /* CoreDataManager */,
@@ -114,6 +133,7 @@
 		3D4BF7C72C4E8FF30045F065 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				3D4BF7F52C4FD8B20045F065 /* Detail */,
 				3D4BF7C82C4E8FF70045F065 /* Search */,
 			);
 			path = Scene;
@@ -209,6 +229,60 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		3D4BF7EF2C4ED80D0045F065 /* Extension+UIView */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7F02C4ED81E0045F065 /* ProgresHUD.swift */,
+			);
+			path = "Extension+UIView";
+			sourceTree = "<group>";
+		};
+		3D4BF7F52C4FD8B20045F065 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7F92C4FD8C90045F065 /* Controller */,
+				3D4BF7F82C4FD8C30045F065 /* Model */,
+				3D4BF7F72C4FD8BE0045F065 /* ViewModel */,
+				3D4BF7F62C4FD8BB0045F065 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		3D4BF7F62C4FD8BB0045F065 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF8022C4FF2820045F065 /* DetailCollectionViewHeader.swift */,
+				3D4BF7FC2C4FD90D0045F065 /* DetailView.swift */,
+				3D4BF8002C4FDB180045F065 /* DetailViewControllerCollectionViewCell.swift */,
+				3D4BF8062C4FFE4A0045F065 /* DetailHeaderViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D4BF7F72C4FD8BE0045F065 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7FE2C4FDA6B0045F065 /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3D4BF7F82C4FD8C30045F065 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF8082C5001FD0045F065 /* PartOfSpeechModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3D4BF7F92C4FD8C90045F065 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D4BF7FA2C4FD8DC0045F065 /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -227,6 +301,7 @@
 			name = "DictionaryApp-TurkcellGY";
 			packageProductDependencies = (
 				3D4BF7E12C4EAA090045F065 /* Alamofire */,
+				3D4BF7F32C4ED8320045F065 /* ProgressHUD */,
 			);
 			productName = "DictionaryApp-TurkcellGY";
 			productReference = 3D4BF7AB2C4E8F8B0045F065 /* DictionaryApp-TurkcellGY.app */;
@@ -258,6 +333,7 @@
 			mainGroup = 3D4BF7A22C4E8F8B0045F065;
 			packageReferences = (
 				3D4BF7E02C4EAA090045F065 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3D4BF7F22C4ED8320045F065 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 3D4BF7AC2C4E8F8B0045F065 /* Products */;
 			projectDirPath = "";
@@ -285,22 +361,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D4BF7F12C4ED81E0045F065 /* ProgresHUD.swift in Sources */,
 				3D4BF7DB2C4EA8BA0045F065 /* NetworkConstants.swift in Sources */,
 				3D4BF7E52C4EAAEE0045F065 /* WordDetailResponseModel.swift in Sources */,
+				3D4BF7FF2C4FDA6B0045F065 /* DetailViewModel.swift in Sources */,
 				3D4BF7EE2C4ED0A70045F065 /* SearchViewModel.swift in Sources */,
 				3D4BF7D02C4E90A90045F065 /* SearchView.swift in Sources */,
 				3D4BF7B92C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld in Sources */,
 				3D4BF7DD2C4EA9280045F065 /* NetworkEndPointHelper.swift in Sources */,
 				3D4BF7DF2C4EA9F70045F065 /* NetworkManager.swift in Sources */,
 				3D4BF7EA2C4EB1300045F065 /* NetworkService.swift in Sources */,
+				3D4BF7FB2C4FD8DC0045F065 /* DetailViewController.swift in Sources */,
 				3D4BF7AF2C4E8F8B0045F065 /* AppDelegate.swift in Sources */,
+				3D4BF8072C4FFE4A0045F065 /* DetailHeaderViewCell.swift in Sources */,
 				3D4BF7EC2C4ECF560045F065 /* WordService.swift in Sources */,
 				3D4BF7CE2C4E902B0045F065 /* SearchViewController.swift in Sources */,
 				3D4BF7B12C4E8F8B0045F065 /* SceneDelegate.swift in Sources */,
 				3D4BF7E72C4EAB4C0045F065 /* WordSynonymResponseModel.swift in Sources */,
+				3D4BF8032C4FF2820045F065 /* DetailCollectionViewHeader.swift in Sources */,
 				3D4BF7D72C4EA1900045F065 /* SearchTableViewCell.swift in Sources */,
+				3D4BF7FD2C4FD90D0045F065 /* DetailView.swift in Sources */,
 				3D4BF7D32C4E94C10045F065 /* SearchButton.swift in Sources */,
+				3D4BF8012C4FDB180045F065 /* DetailViewControllerCollectionViewCell.swift in Sources */,
 				3D4BF7D52C4E96300045F065 /* SearchButtonModel.swift in Sources */,
+				3D4BF8092C5001FD0045F065 /* PartOfSpeechModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +607,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		3D4BF7F22C4ED8320045F065 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -530,6 +622,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3D4BF7E02C4EAA090045F065 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		3D4BF7F32C4ED8320045F065 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3D4BF7F22C4ED8320045F065 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 

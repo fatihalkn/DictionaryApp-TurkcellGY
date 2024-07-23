@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         setupSearchBar()
         buttonActions()
+        
     }
 }
 
@@ -35,8 +36,13 @@ extension SearchViewController {
     
     @objc func SearchButtonTapped() {
         guard let word = searchView.searchController.searchBar.text else { return }
+        self.searchViewModel.searchViewModelDelegate = self
         searchViewModel.getDetailWord(word: word) {
-            print(word)
+            let vc = DetailViewController()
+            vc.detailViewModel.wordDetail = self.searchViewModel.wordDetail
+            vc.detailViewModel.wordTitle = word
+            vc.detailViewModel.wordText = self.searchViewModel.wordDetail.first?.phonetics.first?.text
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
@@ -46,5 +52,18 @@ extension SearchViewController {
     func setupSearchBar() {
         navigationItem.searchController = searchView.searchController
     }
+}
+
+//MARK: - SearchViewModelProtocol {
+extension SearchViewController : SearchViewModelProtocol {
+    func showLoading() {
+        searchView.showLoading(text: "", type: .activityIndicator, interaction: false)
+    }
+    
+    func removeLoading() {
+        searchView.removeLoading()
+    }
+    
+    
 }
 

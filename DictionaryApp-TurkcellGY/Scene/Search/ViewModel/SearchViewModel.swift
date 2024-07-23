@@ -7,18 +7,24 @@
 
 import Foundation
 
+protocol SearchViewModelProtocol {
+    func showLoading()
+    func removeLoading()
+}
+
 class SearchViewModel {
     var wordService: WordService = NetworkService()
+    var searchViewModelDelegate: SearchViewModelProtocol?
     var wordDetail = [WordDetailResponseModel]()
     
-    func getDetailWord(word: String,completion: @escaping (() -> Void )) {
-        
+    func getDetailWord(word: String,completion:  @escaping  (() -> Void )) {
+        searchViewModelDelegate?.showLoading()
         wordService.getWordDetail(word: word) { result in
             switch result {
             case .success(let wordDetailResponse):
                 self.wordDetail = wordDetailResponse
-                print(wordDetailResponse)
                 completion()
+                self.searchViewModelDelegate?.removeLoading()
             case .failure(let failure):
                 completion()
                 print("ERROR: \(failure)")
