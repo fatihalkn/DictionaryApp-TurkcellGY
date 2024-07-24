@@ -6,12 +6,17 @@
 //
 
 import UIKit
+protocol DetailCollectionViewHeaderProtocol {
+    func updateCollectionView()
+}
 
 class DetailCollectionViewHeader: UICollectionReusableView {
     static let identifier = "DetailCollectionViewHeader"
     
     //MARK: - Properties
-    let detailViewModel = DetailViewModel()
+    var detailViewModel: DetailViewModel!
+    var previouslySelectedIndexPath: IndexPath?
+    var detailCollectionViewHeaderDelegate: DetailCollectionViewHeaderProtocol?
     
     //MARK: - UIElements
     let wordTitle: UILabel = {
@@ -58,6 +63,7 @@ class DetailCollectionViewHeader: UICollectionReusableView {
         setupUI()
         setupDelegate()
         setupRegister()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -77,6 +83,22 @@ class DetailCollectionViewHeader: UICollectionReusableView {
         partOfSpeechCollectionView.delegate = self
         partOfSpeechCollectionView.dataSource = self
     }
+    
+    func addCell() {
+        if detailViewModel.partOfSpeechModel.count == 3 {
+            let closeCell = PartOfSpeechModel(partOfSpeechModel: "X", type: .Close)
+            detailViewModel.partOfSpeechModel.insert(closeCell, at: 0)
+            partOfSpeechCollectionView.insertItems(at: [IndexPath(item: 0, section: 0)])
+        } else {
+            return
+        }
+    }
+    
+    func updateFilterWordCollectionView(data: [WordDetailResponseModel]) {
+        detailViewModel.filteredWordDetail = data
+        detailCollectionViewHeaderDelegate?.updateCollectionView()
+    }
+    
 }
 
 //MARK: - Configure CollectionView
@@ -93,22 +115,58 @@ extension DetailCollectionViewHeader: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth: CGFloat = collectionView.frame.width / 3
-        let cellHeight: CGFloat = 40
-        return CGSize(width: cellWidth, height: cellHeight)
+        let partOfSpeechType = detailViewModel.partOfSpeechModel[indexPath.item].type
+        switch partOfSpeechType {
+        case .Noun, .Verb, .Adjective:
+            let cellWidth: CGFloat = collectionView.frame.width / 3
+            let cellHeight: CGFloat = 40
+            return CGSize(width: cellWidth, height: cellHeight)
+        case .Close:
+            let cellWidth: CGFloat = 40
+            let cellHeight: CGFloat = 40
+            return CGSize(width: cellWidth, height: cellHeight)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let partOfSpeechType = detailViewModel.partOfSpeechModel[indexPath.item].type
-        switch partOfSpeechType {
-        case .Noun: break
-            
-        case .Verb: break
-            
-        case .Adjective: break
-            
-
+        let cell = collectionView.cellForItem(at: indexPath) as! DetailHeaderViewCell
+        if let previuslyIndexPath = previouslySelectedIndexPath, previouslySelectedIndexPath != indexPath {
+            let previousCell = collectionView.cellForItem(at: previuslyIndexPath) as! DetailHeaderViewCell
+            previousCell.layer.borderColor = UIColor.clear.cgColor
+            previousCell.layer.borderWidth = 0
         }
+        
+        cell.layer.borderColor = UIColor.buttonCL.cgColor
+        cell.layer.borderWidth = 1
+        
+        switch partOfSpeechType {
+            
+        case .Noun, .Verb, .Adjective:
+            addCell()
+            let filteredNouns = detailViewModel.originalWordDetail.compactMap { wordDetail in
+                var newWordDetail = wordDetail
+                let filteredMeanings = wordDetail.meanings.filter { meaning in
+                    return meaning.partOfSpeech == partOfSpeechType.rawValue
+                }
+                newWordDetail.meanings = filteredMeanings
+                return newWordDetail
+            }
+            
+            updateFilterWordCollectionView(data: filteredNouns)
+        case .Close:
+            collectionView.performBatchUpdates {
+                detailViewModel.partOfSpeechModel.remove(at: indexPath.item)
+                collectionView.deleteItems(at: [indexPath])
+            } completion: { _ in
+                self.detailViewModel.filteredWordDetail = self.detailViewModel.originalWordDetail
+                self.detailCollectionViewHeaderDelegate?.updateCollectionView()
+            }
+        }
+        
+        previouslySelectedIndexPath = indexPath
+     
     }
     
     
@@ -131,7 +189,7 @@ extension DetailCollectionViewHeader {
             wordText.topAnchor.constraint(equalTo: wordTitle.bottomAnchor, constant: 10),
             wordText.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
             wordText.trailingAnchor.constraint(lessThanOrEqualTo: voiceImageView.trailingAnchor, constant: -30),
-
+            
             
             voiceImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             voiceImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -10),

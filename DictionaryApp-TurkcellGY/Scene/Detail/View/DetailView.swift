@@ -22,6 +22,25 @@ class DetailView: UIView {
         return collectionView
     }()
     
+    let synonymContentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .placeholderText
+        return view
+    }()
+    
+    let synonymCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        let collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    
     //MARK: - İnit Methods
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,12 +61,24 @@ extension DetailView {
     func setupUI() {
         backgroundColor = .white
         addSubview(detailControllerCollectionView)
+        addSubview(synonymContentView)
+        synonymContentView.addSubview(synonymCollectionView)
         
         NSLayoutConstraint.activate([
             detailControllerCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             detailControllerCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             detailControllerCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            detailControllerCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+            detailControllerCollectionView.bottomAnchor.constraint(equalTo: synonymContentView.topAnchor),
+            
+            synonymContentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            synonymContentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            synonymContentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            synonymContentView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
+            
+            synonymCollectionView.topAnchor.constraint(equalTo: synonymContentView.topAnchor,constant: 15),
+            synonymCollectionView.leadingAnchor.constraint(equalTo: synonymContentView.leadingAnchor),
+            synonymCollectionView.trailingAnchor.constraint(equalTo: synonymContentView.trailingAnchor),
+            synonymCollectionView.bottomAnchor.constraint(equalTo: synonymContentView.bottomAnchor,constant: -15)
         ])
     }
 }

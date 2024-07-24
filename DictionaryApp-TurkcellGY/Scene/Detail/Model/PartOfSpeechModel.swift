@@ -13,7 +13,8 @@ struct PartOfSpeechModel {
 }
 
 enum PartOfSpeechType: String {
-    case Noun
-    case Verb
-    case Adjective
+    case Noun = "noun"
+    case Verb = "verb"
+    case Adjective = "adjective"
+    case Close = "close"
 }

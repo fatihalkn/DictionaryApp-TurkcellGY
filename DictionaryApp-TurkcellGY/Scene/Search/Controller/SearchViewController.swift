@@ -39,7 +39,8 @@ extension SearchViewController {
         self.searchViewModel.searchViewModelDelegate = self
         searchViewModel.getDetailWord(word: word) {
             let vc = DetailViewController()
-            vc.detailViewModel.wordDetail = self.searchViewModel.wordDetail
+            vc.detailViewModel.originalWordDetail = self.searchViewModel.wordDetail
+            vc.detailViewModel.filteredWordDetail = self.searchViewModel.wordDetail
             vc.detailViewModel.wordTitle = word
             vc.detailViewModel.wordText = self.searchViewModel.wordDetail.first?.phonetics.first?.text
             self.navigationController?.pushViewController(vc, animated: true)

@@ -18,7 +18,7 @@ import Foundation
 struct WordDetailResponseModel: Codable {
     let word: String
     let phonetics: [Phonetic]
-    let meanings: [Meaning]
+    var meanings: [Meaning]
     let license: License
     let sourceUrls: [String]
 }
