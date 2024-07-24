@@ -17,8 +17,8 @@ class SynonymCollectionViewCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.textColor = .buttonCL
-        label.font = .systemFont(ofSize: 18, weight: .black)
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 18, weight: .semibold)
         return label
     }()
     
@@ -36,11 +36,13 @@ class SynonymCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         layer.cornerRadius = frame.height / 2
         layer.masksToBounds = true
+        layer.borderColor = UIColor.buttonCL.cgColor
+        layer.borderWidth = 0.8
         
     }
     
-    func configureCell(model: Meaning) {
-        synonymLabel.text = model.synonyms.first
+    func configureCell(model: String) {
+        synonymLabel.text = model
         
     }
  }

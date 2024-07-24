@@ -69,7 +69,7 @@ class DetailViewControllerCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(model: Meaning) {
-        partOfSpeechLabel.text = model.partOfSpeech
+        partOfSpeechLabel.text = model.partOfSpeech.capitalized
         definitionLabel.text = model.definitions.first?.definition
         exampleLabel.text = model.definitions.first?.example
         

@@ -26,6 +26,8 @@ class SearchViewController: UIViewController {
         buttonActions()
         
     }
+    
+    
 }
 
 //MARK: - ButtonActions
@@ -36,12 +38,19 @@ extension SearchViewController {
     
     @objc func SearchButtonTapped() {
         guard let word = searchView.searchController.searchBar.text else { return }
+        
+        if word.isEmpty {
+            searchView.showError(text: "Please enter a word.", image: nil, interaction: false, delay: 2.5)
+            return
+        }
+        
         self.searchViewModel.searchViewModelDelegate = self
         searchViewModel.getDetailWord(word: word) {
             let vc = DetailViewController()
             vc.detailViewModel.originalWordDetail = self.searchViewModel.wordDetail
             vc.detailViewModel.filteredWordDetail = self.searchViewModel.wordDetail
             vc.detailViewModel.wordTitle = word
+            vc.detailViewModel.audioURL = self.searchViewModel.wordDetail.first?.phonetics.first?.audio
             vc.detailViewModel.wordText = self.searchViewModel.wordDetail.first?.phonetics.first?.text
             self.navigationController?.pushViewController(vc, animated: true)
         }

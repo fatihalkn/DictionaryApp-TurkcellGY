@@ -14,6 +14,7 @@ class DetailViewModel {
     var filteredWordDetail = [WordDetailResponseModel]()
     var wordTitle: String?
     var wordText: String?
+    var audioURL: String?
     var partOfSpeechModel: [PartOfSpeechModel] = [.init(partOfSpeechModel: "Noun", type: .Noun),
                                                   .init(partOfSpeechModel: "Verb", type: .Verb),
                                                   .init(partOfSpeechModel: "Adjective", type: .Adjective)]

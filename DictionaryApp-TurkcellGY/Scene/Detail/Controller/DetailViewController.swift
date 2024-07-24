@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 
 class DetailViewController: UIViewController {
@@ -15,6 +16,8 @@ class DetailViewController: UIViewController {
     let detailView = DetailView()
     let detailViewModel = DetailViewModel()
     let detailHeaderView = DetailCollectionViewHeader()
+    var player: AVAudioPlayer?
+    
     
     //MARK: - Lyfe Circle
     override func loadView() {
@@ -26,8 +29,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupDelegate()
         setupRegister()
-        
-        
     }
     
     
@@ -46,6 +47,7 @@ class DetailViewController: UIViewController {
         
         detailView.synonymCollectionView.delegate = self
         detailView.synonymCollectionView.dataSource = self
+        
         
     }
 }
@@ -146,6 +148,46 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
 
 //MARK: - DetailCollectionViewHeaderProtocol
 extension DetailViewController: DetailCollectionViewHeaderProtocol {
+    func didTappedVoiceButton() {
+        guard let audioUrl = detailViewModel.audioURL else {
+            print("URL is nil")
+            return
+        }
+        
+        guard let url = URL(string: audioUrl) else {
+            detailView.showError(text: "Audio not found. Please try again.", image: nil, interaction: false, delay: 2.5)
+            print("Invalid URL")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error downloading audio file: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            do {
+                self.player = try AVAudioPlayer(data: data)
+                self.player?.prepareToPlay()
+                DispatchQueue.main.async {
+                    self.player?.play()
+                }
+                print("Playing audio from URL: \(audioUrl)")
+            } catch {
+                print("Error initializing AVAudioPlayer: \(error.localizedDescription)")
+            }
+            
+        }.resume()
+    }
+    
+    
+    
+    
     func updateCollectionView() {
         detailView.detailControllerCollectionView.reloadData()
     }

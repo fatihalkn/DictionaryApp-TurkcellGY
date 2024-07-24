@@ -25,8 +25,19 @@ class DetailView: UIView {
     let synonymContentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .placeholderText
+        view.backgroundColor = .clear
         return view
+    }()
+    
+    let synonymLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.font = .systemFont(ofSize: 20, weight: .semibold)
+        label.text = "Synonym"
+        return label
     }()
     
     let synonymCollectionView: UICollectionView = {
@@ -63,6 +74,7 @@ extension DetailView {
         addSubview(detailControllerCollectionView)
         addSubview(synonymContentView)
         synonymContentView.addSubview(synonymCollectionView)
+        synonymContentView.addSubview(synonymLabel)
         
         NSLayoutConstraint.activate([
             detailControllerCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -75,10 +87,15 @@ extension DetailView {
             synonymContentView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             synonymContentView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.2),
             
-            synonymCollectionView.topAnchor.constraint(equalTo: synonymContentView.topAnchor,constant: 15),
-            synonymCollectionView.leadingAnchor.constraint(equalTo: synonymContentView.leadingAnchor),
-            synonymCollectionView.trailingAnchor.constraint(equalTo: synonymContentView.trailingAnchor),
-            synonymCollectionView.bottomAnchor.constraint(equalTo: synonymContentView.bottomAnchor,constant: -15)
+            synonymCollectionView.leadingAnchor.constraint(equalTo: synonymContentView.leadingAnchor,constant: 15),
+            synonymCollectionView.trailingAnchor.constraint(equalTo: synonymContentView.trailingAnchor,constant: -15),
+            synonymCollectionView.bottomAnchor.constraint(equalTo: synonymContentView.bottomAnchor,constant: -15),
+            
+            synonymLabel.topAnchor.constraint(equalTo: synonymContentView.topAnchor, constant: 15),
+            synonymLabel.leadingAnchor.constraint(equalTo: synonymContentView.leadingAnchor,constant: 15),
+            synonymLabel.trailingAnchor.constraint(lessThanOrEqualTo: synonymContentView.trailingAnchor, constant: -30),
+            synonymLabel.bottomAnchor.constraint(equalTo: synonymCollectionView.topAnchor, constant: -15)
+            
         ])
     }
 }

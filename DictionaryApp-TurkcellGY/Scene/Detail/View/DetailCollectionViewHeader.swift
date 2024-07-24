@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import AVFoundation
+
 protocol DetailCollectionViewHeaderProtocol {
     func updateCollectionView()
+    func didTappedVoiceButton()
 }
 
 class DetailCollectionViewHeader: UICollectionReusableView {
@@ -17,6 +20,7 @@ class DetailCollectionViewHeader: UICollectionReusableView {
     var detailViewModel: DetailViewModel!
     var previouslySelectedIndexPath: IndexPath?
     var detailCollectionViewHeaderDelegate: DetailCollectionViewHeaderProtocol?
+
     
     //MARK: - UIElements
     let wordTitle: UILabel = {
@@ -37,10 +41,12 @@ class DetailCollectionViewHeader: UICollectionReusableView {
         return label
     }()
     
-    let voiceImageView: UIButton = {
+    let voiceButton: UIButton = {
         let button = UIButton()
         button.setImage(.audioWave, for: .normal)
         button.tintColor = .white
+        button.isPointerInteractionEnabled = true
+        button.backgroundColor = .clear
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -63,6 +69,7 @@ class DetailCollectionViewHeader: UICollectionReusableView {
         setupUI()
         setupDelegate()
         setupRegister()
+        voiceButtonAction()
         
     }
     
@@ -97,6 +104,16 @@ class DetailCollectionViewHeader: UICollectionReusableView {
     func updateFilterWordCollectionView(data: [WordDetailResponseModel]) {
         detailViewModel.filteredWordDetail = data
         detailCollectionViewHeaderDelegate?.updateCollectionView()
+    }
+    
+    func voiceButtonAction() {
+        voiceButton.addTarget(self, action: #selector(voiceButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func voiceButtonTapped() {
+        detailCollectionViewHeaderDelegate?.didTappedVoiceButton()
+        
+    
     }
     
 }
@@ -178,28 +195,28 @@ extension DetailCollectionViewHeader {
         backgroundColor = .placeholderText
         addSubview(wordTitle)
         addSubview(wordText)
-        addSubview(voiceImageView)
+        addSubview(voiceButton)
         addSubview(partOfSpeechCollectionView)
         
         NSLayoutConstraint.activate([
             wordTitle.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 10),
             wordTitle.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            wordTitle.trailingAnchor.constraint(lessThanOrEqualTo: voiceImageView.trailingAnchor, constant: -30),
+            wordTitle.trailingAnchor.constraint(lessThanOrEqualTo: voiceButton.trailingAnchor, constant: -30),
             
             wordText.topAnchor.constraint(equalTo: wordTitle.bottomAnchor, constant: 10),
             wordText.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            wordText.trailingAnchor.constraint(lessThanOrEqualTo: voiceImageView.trailingAnchor, constant: -30),
+            wordText.trailingAnchor.constraint(lessThanOrEqualTo: voiceButton.trailingAnchor, constant: -30),
             
             
-            voiceImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            voiceImageView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -10),
-            voiceImageView.widthAnchor.constraint(equalToConstant: 30),
-            voiceImageView.heightAnchor.constraint(equalToConstant: 30),
+            voiceButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            voiceButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -10),
+            voiceButton.widthAnchor.constraint(equalToConstant: 30),
+            voiceButton.heightAnchor.constraint(equalToConstant: 30),
             
-            partOfSpeechCollectionView.topAnchor.constraint(equalTo: wordText.bottomAnchor, constant: 10),
+            partOfSpeechCollectionView.topAnchor.constraint(equalTo: wordText.bottomAnchor, constant: 5),
             partOfSpeechCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
             partOfSpeechCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            partOfSpeechCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            partOfSpeechCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,constant: -5)
         ])
     }
 }
