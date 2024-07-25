@@ -20,7 +20,8 @@ class DetailCollectionViewHeader: UICollectionReusableView {
     var detailViewModel: DetailViewModel!
     var previouslySelectedIndexPath: IndexPath?
     var detailCollectionViewHeaderDelegate: DetailCollectionViewHeaderProtocol?
-
+    
+    
     
     //MARK: - UIElements
     let wordTitle: UILabel = {
@@ -58,6 +59,7 @@ class DetailCollectionViewHeader: UICollectionReusableView {
         layout.minimumInteritemSpacing = 10
         let collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
+        collectionView.allowsMultipleSelection = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -113,7 +115,7 @@ class DetailCollectionViewHeader: UICollectionReusableView {
     @objc func voiceButtonTapped() {
         detailCollectionViewHeaderDelegate?.didTappedVoiceButton()
         
-    
+        
     }
     
 }
@@ -158,8 +160,9 @@ extension DetailCollectionViewHeader: UICollectionViewDelegate, UICollectionView
         cell.layer.borderColor = UIColor.buttonCL.cgColor
         cell.layer.borderWidth = 1
         
+        
+        
         switch partOfSpeechType {
-            
         case .Noun, .Verb, .Adjective:
             addCell()
             let filteredNouns = detailViewModel.originalWordDetail.compactMap { wordDetail in
@@ -183,7 +186,13 @@ extension DetailCollectionViewHeader: UICollectionViewDelegate, UICollectionView
         }
         
         previouslySelectedIndexPath = indexPath
-     
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? DetailHeaderViewCell else { return }
+        cell.layer.borderColor = UIColor.clear.cgColor
+        cell.layer.borderWidth = 0
     }
     
     

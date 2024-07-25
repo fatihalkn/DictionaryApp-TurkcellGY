@@ -35,6 +35,10 @@
 		3D4BF8072C4FFE4A0045F065 /* DetailHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8062C4FFE4A0045F065 /* DetailHeaderViewCell.swift */; };
 		3D4BF8092C5001FD0045F065 /* PartOfSpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8082C5001FD0045F065 /* PartOfSpeechModel.swift */; };
 		3D4BF80D2C5176070045F065 /* SynonymCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF80C2C5176070045F065 /* SynonymCollectionViewCell.swift */; };
+		3D4BF8102C526B1D0045F065 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF80E2C526B1D0045F065 /* Word+CoreDataClass.swift */; };
+		3D4BF8112C526B1D0045F065 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF80F2C526B1D0045F065 /* Word+CoreDataProperties.swift */; };
+		3D4BF8132C526B790045F065 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8122C526B790045F065 /* CoreDataManager.swift */; };
+		3D4BF8152C527A690045F065 /* RecentWordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4BF8142C527A690045F065 /* RecentWordCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,10 @@
 		3D4BF8062C4FFE4A0045F065 /* DetailHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderViewCell.swift; sourceTree = "<group>"; };
 		3D4BF8082C5001FD0045F065 /* PartOfSpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeechModel.swift; sourceTree = "<group>"; };
 		3D4BF80C2C5176070045F065 /* SynonymCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynonymCollectionViewCell.swift; sourceTree = "<group>"; };
+		3D4BF80E2C526B1D0045F065 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3D4BF80F2C526B1D0045F065 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3D4BF8122C526B790045F065 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		3D4BF8142C527A690045F065 /* RecentWordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentWordCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +133,9 @@
 		3D4BF7C62C4E8FB20045F065 /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
+				3D4BF80E2C526B1D0045F065 /* Word+CoreDataClass.swift */,
+				3D4BF80F2C526B1D0045F065 /* Word+CoreDataProperties.swift */,
+				3D4BF8122C526B790045F065 /* CoreDataManager.swift */,
 				3D4BF7B72C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld */,
 			);
 			path = CoreDataManager;
@@ -177,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				3D4BF7CF2C4E90A90045F065 /* SearchView.swift */,
+				3D4BF8142C527A690045F065 /* RecentWordCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,6 +379,7 @@
 				3D4BF7FF2C4FDA6B0045F065 /* DetailViewModel.swift in Sources */,
 				3D4BF7EE2C4ED0A70045F065 /* SearchViewModel.swift in Sources */,
 				3D4BF7D02C4E90A90045F065 /* SearchView.swift in Sources */,
+				3D4BF8132C526B790045F065 /* CoreDataManager.swift in Sources */,
 				3D4BF80D2C5176070045F065 /* SynonymCollectionViewCell.swift in Sources */,
 				3D4BF7B92C4E8F8B0045F065 /* DictionaryApp_TurkcellGY.xcdatamodeld in Sources */,
 				3D4BF7DD2C4EA9280045F065 /* NetworkEndPointHelper.swift in Sources */,
@@ -377,10 +390,13 @@
 				3D4BF8072C4FFE4A0045F065 /* DetailHeaderViewCell.swift in Sources */,
 				3D4BF7EC2C4ECF560045F065 /* WordService.swift in Sources */,
 				3D4BF7CE2C4E902B0045F065 /* SearchViewController.swift in Sources */,
+				3D4BF8102C526B1D0045F065 /* Word+CoreDataClass.swift in Sources */,
 				3D4BF7B12C4E8F8B0045F065 /* SceneDelegate.swift in Sources */,
 				3D4BF7E72C4EAB4C0045F065 /* WordSynonymResponseModel.swift in Sources */,
 				3D4BF8032C4FF2820045F065 /* DetailCollectionViewHeader.swift in Sources */,
+				3D4BF8152C527A690045F065 /* RecentWordCollectionViewCell.swift in Sources */,
 				3D4BF7FD2C4FD90D0045F065 /* DetailView.swift in Sources */,
+				3D4BF8112C526B1D0045F065 /* Word+CoreDataProperties.swift in Sources */,
 				3D4BF7D32C4E94C10045F065 /* SearchButton.swift in Sources */,
 				3D4BF8012C4FDB180045F065 /* DetailViewControllerCollectionViewCell.swift in Sources */,
 				3D4BF7D52C4E96300045F065 /* SearchButtonModel.swift in Sources */,

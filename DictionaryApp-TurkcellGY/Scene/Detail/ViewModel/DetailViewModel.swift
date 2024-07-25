@@ -15,6 +15,7 @@ class DetailViewModel {
     var wordTitle: String?
     var wordText: String?
     var audioURL: String?
+    var selectedIndex = [IndexPath]()
     var partOfSpeechModel: [PartOfSpeechModel] = [.init(partOfSpeechModel: "Noun", type: .Noun),
                                                   .init(partOfSpeechModel: "Verb", type: .Verb),
                                                   .init(partOfSpeechModel: "Adjective", type: .Adjective)]

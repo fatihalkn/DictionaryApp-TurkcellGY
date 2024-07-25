@@ -16,6 +16,7 @@ class SearchViewModel {
     var wordService: WordService = NetworkService()
     var searchViewModelDelegate: SearchViewModelProtocol?
     var wordDetail = [WordDetailResponseModel]()
+    var savedWord = [Word]()
     
     func getDetailWord(word: String,completion:  @escaping  (() -> Void )) {
         searchViewModelDelegate?.showLoading()
@@ -30,5 +31,14 @@ class SearchViewModel {
                 print("ERROR: \(failure)")
             }
         }
+    }
+    
+    func saveWordCoreData(searchWord: String) {
+        CoreDataManager.shared.saveWord(searchWord: searchWord )
+    }
+    
+    func fetchWordCoreData() {
+        guard let word = CoreDataManager.shared.fetchWord() else { return }
+        self.savedWord = word
     }
 }
