@@ -41,6 +41,19 @@ class DetailHeaderViewCell: UICollectionViewCell {
     func configureCell(model: PartOfSpeechModel) {
         partOfSpeechLabel.text = model.partOfSpeechModel
     }
+    
+    func selectCell(_ select: Bool) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            if select {
+                layer.borderColor = UIColor.buttonCL.cgColor
+                layer.borderWidth = 1.5
+            } else {
+                layer.borderColor = UIColor.clear.cgColor
+                layer.borderWidth = 0
+            }
+        }
+    }
 }
 
 //MARK: - SetupUI

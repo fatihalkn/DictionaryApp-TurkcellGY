@@ -18,7 +18,7 @@ class DetailCollectionViewHeader: UICollectionReusableView {
     
     //MARK: - Properties
     var detailViewModel: DetailViewModel!
-    var previouslySelectedIndexPath: IndexPath?
+    var selectedPartOfSpeechTypes: [PartOfSpeechType] = []
     var detailCollectionViewHeaderDelegate: DetailCollectionViewHeaderProtocol?
     
     
@@ -59,7 +59,6 @@ class DetailCollectionViewHeader: UICollectionReusableView {
         layout.minimumInteritemSpacing = 10
         let collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.allowsMultipleSelection = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -130,6 +129,8 @@ extension DetailCollectionViewHeader: UICollectionViewDelegate, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailHeaderViewCell.identifier, for: indexPath) as! DetailHeaderViewCell
         let model = detailViewModel.partOfSpeechModel[indexPath.item]
         cell.configureCell(model: model)
+        let isSelected = selectedPartOfSpeechTypes.contains(where: { $0 == model.type })
+        cell.selectCell(isSelected)
         return cell
     }
     
@@ -150,32 +151,48 @@ extension DetailCollectionViewHeader: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let partOfSpeechType = detailViewModel.partOfSpeechModel[indexPath.item].type
-        let cell = collectionView.cellForItem(at: indexPath) as! DetailHeaderViewCell
-        if let previuslyIndexPath = previouslySelectedIndexPath, previouslySelectedIndexPath != indexPath {
-            let previousCell = collectionView.cellForItem(at: previuslyIndexPath) as! DetailHeaderViewCell
-            previousCell.layer.borderColor = UIColor.clear.cgColor
-            previousCell.layer.borderWidth = 0
-        }
         
-        cell.layer.borderColor = UIColor.buttonCL.cgColor
-        cell.layer.borderWidth = 1
-        
-        
-        
-        switch partOfSpeechType {
-        case .Noun, .Verb, .Adjective:
-            addCell()
-            let filteredNouns = detailViewModel.originalWordDetail.compactMap { wordDetail in
-                var newWordDetail = wordDetail
-                let filteredMeanings = wordDetail.meanings.filter { meaning in
-                    return meaning.partOfSpeech == partOfSpeechType.rawValue
+        if partOfSpeechType != .Close {
+            
+            if selectedPartOfSpeechTypes.contains(where: { $0 == partOfSpeechType }) {
+                if let indexToRemove = selectedPartOfSpeechTypes.firstIndex(where: { $0 == partOfSpeechType }) {
+                    let cell = collectionView.cellForItem(at: indexPath) as! DetailHeaderViewCell
+                    cell.selectCell(false)
+                    selectedPartOfSpeechTypes.remove(at: indexToRemove)
+                    
+                    if selectedPartOfSpeechTypes.isEmpty {
+                        updateFilterWordCollectionView(data: detailViewModel.originalWordDetail)
+                        removeXButton()
+                    } else {
+                        deleteMeanings(type: partOfSpeechType)
+                    }
                 }
-                newWordDetail.meanings = filteredMeanings
-                return newWordDetail
+            } else {
+                selectedPartOfSpeechTypes.append(partOfSpeechType)
+                let cell = collectionView.cellForItem(at: indexPath) as! DetailHeaderViewCell
+                cell.selectCell(true)
+                filterMeanings()
             }
             
-            updateFilterWordCollectionView(data: filteredNouns)
-        case .Close:
+        } else {
+            removeXButton()
+        }
+    }
+    
+    func removeXButton() {
+        if let xCellIndex = detailViewModel.partOfSpeechModel.firstIndex(where: { $0.type == .Close }) {
+            let collectionView = partOfSpeechCollectionView
+            let indexPath = IndexPath(item: xCellIndex, section: 0)
+            
+            selectedPartOfSpeechTypes.forEach { selectedSpeechType in
+                if let cellIndex = detailViewModel.partOfSpeechModel.firstIndex(where: { $0.type == selectedSpeechType }) {
+                    let selectedIndexPath = IndexPath(item: cellIndex, section: 0)
+                    let cell = collectionView.cellForItem(at: selectedIndexPath) as! DetailHeaderViewCell
+                    cell.selectCell(false)
+                }
+            }
+            selectedPartOfSpeechTypes.removeAll()
+            
             collectionView.performBatchUpdates {
                 detailViewModel.partOfSpeechModel.remove(at: indexPath.item)
                 collectionView.deleteItems(at: [indexPath])
@@ -184,18 +201,47 @@ extension DetailCollectionViewHeader: UICollectionViewDelegate, UICollectionView
                 self.detailCollectionViewHeaderDelegate?.updateCollectionView()
             }
         }
-        
-        previouslySelectedIndexPath = indexPath
-        
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? DetailHeaderViewCell else { return }
-        cell.layer.borderColor = UIColor.clear.cgColor
-        cell.layer.borderWidth = 0
+    func filterMeanings() {
+        addCell()
+        let filteredNouns = detailViewModel.originalWordDetail.compactMap { wordDetail in
+            var newWordDetail = wordDetail
+            newWordDetail.meanings.removeAll()
+            
+            var filteredMeanings: [Meaning] = []
+            
+            selectedPartOfSpeechTypes.forEach { selectedPartOfSpeechType in
+                let meanings = wordDetail.meanings.filter { meaning in
+                    return meaning.partOfSpeech == selectedPartOfSpeechType.rawValue
+                }
+                
+                filteredMeanings.append(contentsOf: meanings)
+            }
+
+            
+            newWordDetail.meanings.append(contentsOf: filteredMeanings)
+            
+            return newWordDetail
+        }
+        
+        
+        updateFilterWordCollectionView(data: filteredNouns)
     }
     
-    
+    func deleteMeanings(type: PartOfSpeechType) {
+        let updatedNouns = detailViewModel.filteredWordDetail.compactMap { wordDetail in
+            var newWordDetail = wordDetail
+            
+            if let indexToRemove = newWordDetail.meanings.firstIndex(where: { $0.partOfSpeech == type.rawValue }) {
+                newWordDetail.meanings.remove(at: indexToRemove)
+            }
+            
+            return newWordDetail
+        }
+        
+        updateFilterWordCollectionView(data: updatedNouns)
+    }
 }
 
 //MARK: - SetupUI
