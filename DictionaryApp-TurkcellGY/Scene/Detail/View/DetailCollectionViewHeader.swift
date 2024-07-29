@@ -59,6 +59,7 @@ class DetailCollectionViewHeader: UICollectionReusableView {
         layout.minimumInteritemSpacing = 10
         let collectionView = UICollectionView(frame: .zero,collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -247,7 +248,7 @@ extension DetailCollectionViewHeader: UICollectionViewDelegate, UICollectionView
 //MARK: - SetupUI
 extension DetailCollectionViewHeader {
     func setupUI() {
-        backgroundColor = .placeholderText
+        backgroundColor = .grayCL
         addSubview(wordTitle)
         addSubview(wordText)
         addSubview(voiceButton)

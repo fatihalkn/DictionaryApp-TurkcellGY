@@ -29,6 +29,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupDelegate()
         setupRegister()
+        navigationController?.navigationBar.tintColor = .buttonCL
     }
     
     

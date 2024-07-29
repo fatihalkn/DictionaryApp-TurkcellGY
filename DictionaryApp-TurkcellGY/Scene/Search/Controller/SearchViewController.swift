@@ -27,6 +27,8 @@ class SearchViewController: UIViewController {
         setupRegister()
         setupDelegate()
         searchView.recentSearchWordCollectionView.isHidden = true
+        navigationController?.navigationBar.tintColor = .buttonCL
+
         
     }
     
